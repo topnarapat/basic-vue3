@@ -1,3 +1,34 @@
+<script setup>
+import { reactive } from 'vue';
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+} from '@headlessui/vue';
+import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline';
+
+const navigation = reactive([
+  { name: 'Home', href: '/', current: false },
+  { name: 'About', href: '/about', current: false },
+  { name: 'Register', href: '/register', current: false },
+  { name: 'Login', href: '/login', current: false },
+]);
+
+function setActiveNav(name) {
+  navigation.forEach((e) => {
+    if (e.name === name) {
+      e.current = true;
+    } else {
+      e.current = false;
+    }
+  });
+}
+</script>
+
 <template>
   <Disclosure as="nav" class="bg-gray-800" v-slot="{ open }">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -121,34 +152,3 @@
     </DisclosurePanel>
   </Disclosure>
 </template>
-
-<script setup>
-import { reactive } from 'vue';
-import {
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-} from '@headlessui/vue';
-import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline';
-
-const navigation = reactive([
-  { name: 'Home', href: '/', current: false },
-  { name: 'About', href: '/about', current: false },
-  { name: 'Register', href: '/register', current: false },
-  { name: 'Login', href: '/login', current: false },
-]);
-
-function setActiveNav(name) {
-  navigation.forEach((e) => {
-    if (e.name === name) {
-      e.current = true;
-    } else {
-      e.current = false;
-    }
-  });
-}
-</script>

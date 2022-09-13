@@ -1,14 +1,6 @@
-<script>
+<script setup>
 import NavbarComponent from '@/components/NavbarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
-
-export default {
-  name: 'MainLayout',
-  components: {
-    NavbarComponent,
-    FooterComponent,
-  },
-};
 </script>
 
 <template>
